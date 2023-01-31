@@ -18,12 +18,11 @@ from polls.models import Batch
 
 
 def send_sms(phone: str, message: str) -> bool:
-
     url = settings.SMS_URL + F'&number=88{phone}&message={message}'
 
     payload = {}
     headers = {
-      'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded'
     }
     response = requests.post(url, data=payload, headers=headers)
     if response.status_code != 200:
@@ -33,13 +32,14 @@ def send_sms(phone: str, message: str) -> bool:
 
 password_generator = ascii_uppercase + digits
 
-
 reader = csv.DictReader(open('data.csv'))
 
 for _ in range(1000):
     try:
         data = next(reader)
         s_id = data.get('ID')
+        if int(s_id[0]) in [5, 6, 7, 8, 9] and s_id[0] != '0':
+            s_id = '0' + s_id
         phone = data.get('PHONE')
         if phone[0] != '0':
             phone = '0' + phone
