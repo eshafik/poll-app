@@ -56,7 +56,7 @@ for _ in range(1000):
             file1.write(f"{s_id} - {password}\n")
         send_sms(phone=phone, message=f'Dear {data.get("NAME")}({s_id}),\n\n\n'
                                       f'Your login pass: {password}\n\n'
-                                      f'Poll URL: https://poll.kidslab.center\n')
+                                      f'Login URL: https://poll.kidslab.center/accounts/login/\n')
         print(f"SMS Send Success to: {phone} with ID: {s_id}")
     except StopIteration:
         print("completed")
