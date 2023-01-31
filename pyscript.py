@@ -38,6 +38,8 @@ for _ in range(1000):
     try:
         data = next(reader)
         s_id = data.get('ID')
+        if not s_id:
+            continue
         if int(s_id[0]) in [5, 6, 7, 8, 9] and s_id[0] != '0':
             s_id = '0' + s_id
         phone = data.get('PHONE')
