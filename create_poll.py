@@ -18,13 +18,16 @@ polls = {
 
 for batch in batches:
     if batch.number == 1:
-        poll = Poll.objects.create(owner=owner, text='Who will be the president', batch=batch)
+        poll = Poll.objects.create(owner=owner, text='Please select the person for President position from your batch',
+                                   batch=batch)
         polls['1'] = poll
     elif batch.number == 2:
-        poll = Poll.objects.create(owner=owner, text='Who will be the Secretary', batch=batch)
+        poll = Poll.objects.create(owner=owner, text='Please select the person for General Secretary position from your batch',
+                                   batch=batch)
         polls['2'] = poll
     elif batch.number == 3:
-        poll = Poll.objects.create(owner=owner, text='Who will be the Organizing Secretary', batch=batch)
+        poll = Poll.objects.create(owner=owner, text='Please select the person for Organizing Secretary position from your batch',
+                                   batch=batch)
         polls['3'] = poll
 
 
